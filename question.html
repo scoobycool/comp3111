@@ -20,6 +20,7 @@
 
 	<!-- need this for comlted ones. TODO: can I do this in bootstrap -->
 	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="js/lib/angular-smilies.min.css">
 
 </head>
 <body ng-controller="TodoCtrl">
@@ -44,21 +45,18 @@
 
 
 
+
 <div class="input-group">
 	<!--
 	<form id="todo-form" ng-submit="addTodo()">
 -->
-    <!-------Added by longq------->
-    
-    <textarea type="text" id="new-todo" class="form-control"
-    
-placeholder="Search or Post Question (First line will be title)"
+<span class="input-group-addon" smilies-selector="input.wholeMsg" smilies-placement="right" smilies-title="Smilies"></span>
+<textarea type="text" id="new-todo" class="form-control"
+placeholder="Search or Post Question"
 ng-model="input.wholeMsg" autofocus></textarea>
-    <!-------Added by longq------->
 <span class="input-group-btn">
 	<button class="btn btn-default" type="button" ng-click="addTodo()">Ask</button>
 </span>
-
 </div><!-- /input-group -->
 
 
@@ -117,7 +115,9 @@ ng-model="input.wholeMsg" autofocus></textarea>
 <script src="js/lib/firebase.js"></script>
 <script src="js/lib/angular.min.js"></script>
 <script src="js/lib/angularfire.js"></script>
-
+<script src="js/lib/angular-smilies.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-sanitize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
 <!-- Ng storage 0.3.6  -->
 <script src="js/lib/ngStorage.min.js"></script>
 
