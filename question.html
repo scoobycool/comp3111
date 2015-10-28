@@ -69,7 +69,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 			<!-- switch -->
 			<span ng-switch-when="?" class="glyphicon glyphicon-question-sign"></span>
 			<span ng-switch-when="!" class="glyphicon glyphicon-ice-lolly"></span>
-			<span ng-class="{completed: todo.completed}">{{todo.head}}</span>
+			<span ng-class="{completed: todo.completed}"><span ng-class="{completed: todo.completed}"><span ng-bind-html = "todo.head|smilies"></span></span>
              <!-------Added by longq------->
             <span ng-class="{completed: todo.completed}" style="font-size: 50%">{{todo.quote}}</span>
             <!-------Added by longq------->
