@@ -21,6 +21,16 @@
 	<!-- need this for comlted ones. TODO: can I do this in bootstrap -->
 	<link rel="stylesheet" href="main.css">
 	<link rel="stylesheet" href="js/lib/angular-smilies.min.css">
+        
+        <script src="jquery.min.js" type="text/javascript"></script>    <!--plugin of timeago-->
+        <script src="jquery.timeago.js" type="text/javascript"></script>    <!--plugin of timeago-->
+        <script>
+            jQuery(document).ready(function() {
+                                   jQuery("abbr.timeago").timeago();
+                                   });
+                                   todo.timeString = jQuery.timeago(todo.timeString);
+            </script>
+
 
 </head>
 <body ng-controller="TodoCtrl">
@@ -77,7 +87,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 <p class="list-group-item-text">
 
             <p class="list-group-item-text"><span ng-bind-html="todo.trustedDesc"></span>
-            created: {{todo.timestamp}}<span ng-app="angularMoment" am-time-ago="todo.timestamp"></span>
+            created: {{todo.timeString}}<span ng-app="angularMoment" am-time-ago="todo.timestamp"></span>
 			<span ng-show="todo.tags">tags: <span ng-repeat = "n in todo.tags"> <span class="label label-success">{{n}}</span></span></span></p>
 
 			<button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="addEcho(todo)" ng-disabled="$storage[todo.$id]">Like</button>
