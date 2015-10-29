@@ -80,7 +80,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 			<span ng-switch-when="?" class="glyphicon glyphicon-question-sign"></span>
 			<span ng-switch-when="!" class="glyphicon glyphicon-ice-lolly"></span>
 			<span ng-class="{completed: todo.completed}"><span ng-class="{completed: todo.completed}"><span ng-bind-html = "todo.head|smilies"></span></span>
-            <span ng-class="{completed: todo.completed}" style="font-size: 50%">{{todo.quote}}</span>
+            <span ng-show="todo.quote.length - 1" ng-class="{completed: todo.completed}"><blockquote style="font-size: 50%">{{todo.quote}}</blockquote></span>
             
 		</h4>
 
@@ -93,9 +93,9 @@ ng-model="input.wholeMsg" autofocus></textarea>
 			<button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="addEcho(todo)" ng-disabled="$storage[todo.$id]">Like</button>
             
            
-            <button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="dislike(todo)" ng-disabled="$storage[todo.$id]">Dislike</button>
+            <button class="btn btn-default btn-xs glyphicon glyphicon-hand-down" ng-click="dislike(todo)" ng-disabled="$storage[todo.$id]">Dislike</button>
             
-            <button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="quote(todo)">Quote</button>
+            <button class="btn btn-default btn-xs glyphicon glyphicon-tags" ng-click="quote(todo)">Quote</button>
             
             
 			<button ng-show="isAdmin" class="btn btn-default btn-xs glyphicon glyphicon-check" ng-click="toggleCompleted(todo)">Toggle Completed</button>
@@ -106,14 +106,14 @@ ng-model="input.wholeMsg" autofocus></textarea>
 
 
 
-	<!--
+
 
 	<div id="toTop" class="btn btn-info"><span class="fa fa-arrow-up">Back to Top</span></div>
 
 	<button ng-hide="totalCount<=maxQuestion"
 	class="pull-right btn btn-default glyphicon glyphicon-arrow-down"
 	type="button" ng-click="increaseMax()"> Show more</button>
--->
+
 
 
 
