@@ -30,8 +30,6 @@
                                    });
                                    todo.timeString = jQuery.timeago(todo.timeString);
             </script>
-
-
 </head>
 <body ng-controller="TodoCtrl">
 	<font size="10">Questions for {{roomId}}?</font>&nbsp;
@@ -54,8 +52,20 @@
 <button ng-show="$authData" class="btn btn-primary left" type="button" ng-click="FBLogout()">Logout</button>
 
 
-
-
+<br></br>
+<input
+  uploadcare-widget
+  ng-model="object.image.info.uuid"
+  data-public-key="6f949dcd494235a9ec50"
+  data-tabs="file url"
+  data-images-only="true"
+  data-preview-step="true"
+  data-clearable="true"
+  data-multiple="false"
+  on-upload-complete="onUCUploadComplete(info)"
+  on-widget-ready="onUCWidgetReady(widget)"
+  value="{{ object.image.info.cdnUrl }}"
+ /></input>
 <div class="input-group">
 	<!--
 	<form id="todo-form" ng-submit="addTodo()">
@@ -80,7 +90,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 			<span ng-switch-when="?" class="glyphicon glyphicon-question-sign"></span>
 			<span ng-switch-when="!" class="glyphicon glyphicon-ice-lolly"></span>
 			<span ng-class="{completed: todo.completed}"><span ng-class="{completed: todo.completed}"><span ng-bind-html = "todo.head|smilies"></span></span>
-            <span ng-show="todo.quote.length - 1" ng-class="{completed: todo.completed}"><blockquote style="font-size: 50%">{{todo.quote}}</blockquote></span>
+            <span ng-show="todo.quote.length - 1" ng-class="{completed: todo.completed}"><blockquote style="font-size: 80%"><footer>{{todo.quote}}</footer></blockquote></span>
             
 		</h4>
 
@@ -125,11 +135,13 @@ ng-model="input.wholeMsg" autofocus></textarea>
 <script src="js/lib/angular.min.js"></script>
 <script src="js/lib/angularfire.js"></script>
 <script src="js/lib/angular-smilies.min.js"></script>
+<script src="js/lib/angular-uploadcare.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-sanitize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" charset="utf-8"></script>
+<script src="https://ucarecdn.com/widget/2.5.5/uploadcare/uploadcare.min.js" charset="utf-8"></script>
 <!-- Ng storage 0.3.6  -->
 <script src="js/lib/ngStorage.min.js"></script>
-
 <script src="js/app.js"></script>
 <script src="js/filters/questionFilter.js"></script>
 <script src="js/controllers/todoCtrl.js"></script>
