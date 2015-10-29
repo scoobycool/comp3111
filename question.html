@@ -20,6 +20,17 @@
 
 	<!-- need this for comlted ones. TODO: can I do this in bootstrap -->
 	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="js/lib/angular-smilies.min.css">
+        
+        <script src="jquery.min.js" type="text/javascript"></script>    <!--plugin of timeago-->
+        <script src="jquery.timeago.js" type="text/javascript"></script>    <!--plugin of timeago-->
+        <script>
+            jQuery(document).ready(function() {
+                                   jQuery("abbr.timeago").timeago();
+                                   });
+                                   todo.timeString = jQuery.timeago(todo.timeString);
+            </script>
+
 
 </head>
 <body ng-controller="TodoCtrl">
@@ -44,21 +55,18 @@
 
 
 
+
 <div class="input-group">
 	<!--
 	<form id="todo-form" ng-submit="addTodo()">
 -->
-    <!-------Added by longq------->
-    
-    <textarea type="text" id="new-todo" class="form-control"
-    
-placeholder="Search or Post Question (First line will be title)"
+<span class="input-group-addon" smilies-selector="input.wholeMsg" smilies-placement="right" smilies-title="Smilies"></span>
+<textarea type="text" id="new-todo" class="form-control"
+placeholder="Search or Post Question"
 ng-model="input.wholeMsg" autofocus></textarea>
-    <!-------Added by longq------->
 <span class="input-group-btn">
 	<button class="btn btn-default" type="button" ng-click="addTodo()">Ask</button>
 </span>
-
 </div><!-- /input-group -->
 
 
@@ -71,25 +79,24 @@ ng-model="input.wholeMsg" autofocus></textarea>
 			<!-- switch -->
 			<span ng-switch-when="?" class="glyphicon glyphicon-question-sign"></span>
 			<span ng-switch-when="!" class="glyphicon glyphicon-ice-lolly"></span>
-			<span ng-class="{completed: todo.completed}">{{todo.head}}</span>
-             <!-------Added by longq------->
+			<span ng-class="{completed: todo.completed}"><span ng-class="{completed: todo.completed}"><span ng-bind-html = "todo.head|smilies"></span></span>
             <span ng-class="{completed: todo.completed}" style="font-size: 50%">{{todo.quote}}</span>
-            <!-------Added by longq------->
+            
 		</h4>
 
 <p class="list-group-item-text">
 
             <p class="list-group-item-text"><span ng-bind-html="todo.trustedDesc"></span>
-            created: {{todo.timestamp}}<span ng-app="angularMoment" am-time-ago="todo.timestamp"></span>
-			<span ng-show="todo.tags">tags: {{todo.tags}}</span></p>
+            created: {{todo.timeString}}<span ng-app="angularMoment" am-time-ago="todo.timestamp"></span>
+			<span ng-show="todo.tags">tags: <span ng-repeat = "n in todo.tags"> <span class="label label-success">{{n}}</span></span></span></p>
 
 			<button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="addEcho(todo)" ng-disabled="$storage[todo.$id]">Like</button>
             
-            <!-------Added by longq------->
+           
             <button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="dislike(todo)" ng-disabled="$storage[todo.$id]">Dislike</button>
             
             <button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="quote(todo)">Quote</button>
-            <!-------Added by longq------->
+            
             
 			<button ng-show="isAdmin" class="btn btn-default btn-xs glyphicon glyphicon-check" ng-click="toggleCompleted(todo)">Toggle Completed</button>
 			&nbsp;
@@ -117,7 +124,9 @@ ng-model="input.wholeMsg" autofocus></textarea>
 <script src="js/lib/firebase.js"></script>
 <script src="js/lib/angular.min.js"></script>
 <script src="js/lib/angularfire.js"></script>
-
+<script src="js/lib/angular-smilies.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-sanitize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
 <!-- Ng storage 0.3.6  -->
 <script src="js/lib/ngStorage.min.js"></script>
 
