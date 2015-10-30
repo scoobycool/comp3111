@@ -238,7 +238,13 @@ $scope.increaseMax = function () {
 		$scope.maxQuestion+=scrollCountDelta;
 	}
 };
- 
+
+
+$scope.movetags = function(tag){
+	$scope.input.wholeMsg = tag;
+	$window.scrollTo(0,0);
+};
+
 
 $scope.toTop =function toTop() {
 	$window.scrollTo(0,0);
