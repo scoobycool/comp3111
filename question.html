@@ -89,7 +89,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 			<!-- switch -->
 			<span ng-switch-when="?" class="glyphicon glyphicon-question-sign"></span>
 			<span ng-switch-when="!" class="glyphicon glyphicon-ice-lolly"></span>
-			<span ng-class="{completed: todo.completed}"><span ng-class="{completed: todo.completed}"><span ng-bind-html = "todo.head|smilies"></span></span>
+			<span ng-class="{completed: todo.completed}"><span ng-class="{completed: todo.completed}"><span ng-bind-html = "todo.head|smilies"></span></span></span>
             <span ng-show="todo.quote.length - 1" ng-class="{completed: todo.completed}"><blockquote style="font-size: 80%"><footer>{{todo.quote}}</footer></blockquote></span>
             <span ng-show="todo.image.length" ng-class="{completed: todo.completed}"><br><br><img src = {{todo.image}}><br><br></img></span>
 		</h4>
@@ -98,7 +98,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 
             <p class="list-group-item-text"><span ng-bind-html="todo.trustedDesc"></span>
             created: {{todo.timeString}}<span ng-app="angularMoment" am-time-ago="todo.timestamp"></span>
-			<span ng-show="todo.tags">tags: <span ng-repeat = "n in todo.tags"> <span class="label label-success">{{n}}</span></span></span></p>
+			<span ng-show="todo.tags">tags: <span ng-repeat = "n in todo.tags"> <a href="#"><span class="label label-success" ng-click = "movetags(n)">{{n}}</span></a></span></span></p>
 
 			<button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="addEcho(todo)" ng-disabled="$storage[todo.$id]">Like</button>
             
@@ -148,9 +148,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 <script src="js/directives/todoFocus.js"></script>
 <script src="js/directives/todoBlur.js"></script>
 <script src="js/directives/todoEscape.js"></script>
-<!------------------longq------------------->
 
-<!------------------longq------------------->
 
 
 </body>
