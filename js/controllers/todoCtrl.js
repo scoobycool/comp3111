@@ -14,7 +14,6 @@ function ($scope, $location, $firebaseArray, $sce, $localStorage, $window) {
 
 	var scrollCountDelta = 10;
 	$scope.maxQuestion = scrollCountDelta;
-
 	/*
 	$(window).scroll(function(){
 	if($(window).scrollTop() > 0) {

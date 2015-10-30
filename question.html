@@ -14,12 +14,11 @@
 	<meta http-equiv="pragma" content="no-cache" />
 
 <title>Question Room: {{roomId}}</title>
-    <link type="text/stylesheet" rel="stylesheet" href="css/emoji.min.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 	<!-- need this for comlted ones. TODO: can I do this in bootstrap -->
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="js/lib/angular-smilies.min.css">
         
         <script src="jquery.min.js" type="text/javascript"></script>    <!--plugin of timeago-->
@@ -71,7 +70,7 @@
 	<form id="todo-form" ng-submit="addTodo()">
 -->
 <span class="input-group-addon" smilies-selector="input.wholeMsg" smilies-placement="right" smilies-title="Smilies"></span>
-<textarea type="text" id="new-todo" class="form-control"
+<textarea  type="text" id="new-todo" class="form-control"
 placeholder="Search or Post Question"
 ng-model="input.wholeMsg" autofocus></textarea>
 <span class="input-group-btn">
@@ -118,7 +117,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 
 
 
-	<div id="toTop" class="btn btn-info"><span class="fa fa-arrow-up">Back to Top</span></div>
+	<div id="toTop" class="btn btn-info"><span class="fa fa-arrow-up" ng-click = "toTop()">Back to Top</span></div>
 
 	<button ng-hide="totalCount<=maxQuestion"
 	class="pull-right btn btn-default glyphicon glyphicon-arrow-down"
