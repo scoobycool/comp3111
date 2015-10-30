@@ -13,6 +13,9 @@
   height: 29px;
   width: 38px;
 }
+body{
+	background-image: url("bg.jpg")
+}
 
 .relative {
     position: relative;
@@ -21,7 +24,37 @@
 .absolute {
     position: absolute;
 }
+.input-group #emoji{
+	position:relative;
+	left:150px;
+}
+.imagegroup {
+	position:relative;
+	left: 150px;
+}
+.input-group #Ask{
+	position:relative;
+	right: 165px;
+}
+.input-group  textarea[type=text]{
+	position:relative;
+	left: 150px;
+    border:             2px solid #a9c6c9;
+    vertical-align:         middle;
+    padding:             9px;
+    height:             129px;
+    border-collapse:         collapse;
+    padding:             2px;
+    width:             16.2in;
+    z-index:             1;
+    font-family: calibri;
+   }
 
+#todo-list{
+position: relative;
+display: block;
+padding: 0px 150px;
+}
 
 #toTop{
 	position: fixed;

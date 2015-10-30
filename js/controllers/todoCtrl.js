@@ -6,6 +6,7 @@
 * - retrieves and persists the model via the $firebaseArray service
 * - exposes the model to the template and provides event handlers
 */
+
 todomvc.controller('TodoCtrl',
 ['$scope', '$location', '$firebaseArray', '$sce', '$localStorage', '$window',
 function ($scope, $location, $firebaseArray, $sce, $localStorage, $window) {
