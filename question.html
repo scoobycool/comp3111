@@ -55,7 +55,7 @@
 <br></br>
 <input
   uploadcare-widget
-  ng-model="object.image.info.uuid"
+  ng-model="imagelink"
   data-public-key="6f949dcd494235a9ec50"
   data-tabs="file url"
   data-images-only="true"
@@ -65,7 +65,7 @@
   on-upload-complete="onUCUploadComplete(info)"
   on-widget-ready="onUCWidgetReady(widget)"
   value="{{ object.image.info.cdnUrl }}"
- /></input>
+ /></input>{{imagelink.length}}
 <div class="input-group">
 	<!--
 	<form id="todo-form" ng-submit="addTodo()">
@@ -91,7 +91,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 			<span ng-switch-when="!" class="glyphicon glyphicon-ice-lolly"></span>
 			<span ng-class="{completed: todo.completed}"><span ng-class="{completed: todo.completed}"><span ng-bind-html = "todo.head|smilies"></span></span>
             <span ng-show="todo.quote.length - 1" ng-class="{completed: todo.completed}"><blockquote style="font-size: 80%"><footer>{{todo.quote}}</footer></blockquote></span>
-            
+            <span ng-show="todo.image.length" ng-class="{completed: todo.completed}"><br><br><img src = {{todo.image}}><br><br></img></span>
 		</h4>
 
 <p class="list-group-item-text">

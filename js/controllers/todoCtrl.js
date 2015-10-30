@@ -47,7 +47,6 @@ $scope.editedTodo = null;
 
  //-------Added by longq-------
  var quoteMsg=" ";
- var photo= new FileReader();
   //-------Added by longq-------
  
 // pre-precessing for collection
@@ -111,10 +110,12 @@ $scope.addTodo = function () {
 	var firstAndLast = $scope.getFirstAndRestSentence(newTodo);
 	var head = firstAndLast[0];
 	var desc = firstAndLast[1];
- 
+	var imglink = $scope.imagelink;
+	if (!($scope.imagelink)){
+		imglink = '';
+	}
 	$scope.todos.$add({
 		wholeMsg: newTodo,
-        image: photo,
 		head: head,
 		headLastChar: head.slice(-1),
 		desc: desc,
@@ -125,8 +126,10 @@ $scope.addTodo = function () {
 		echo: 0,
 		order: 0,
         quote: quoteMsg,
+        image: imglink,
 	});
 	// remove the posted question in the input
+	$scope.imagelink ='';
     quoteMsg=" ";
 	$scope.input.wholeMsg = '';
 };
