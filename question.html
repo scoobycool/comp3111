@@ -52,7 +52,8 @@
 
 
 <br></br>
-<input
+<div class = "imagegroup">
+<input id="imagepicker"
   uploadcare-widget
   ng-model="imagelink"
   data-public-key="6f949dcd494235a9ec50"
@@ -64,17 +65,18 @@
   on-upload-complete="onUCUploadComplete(info)"
   on-widget-ready="onUCWidgetReady(widget)"
   value="{{ object.image.info.cdnUrl }}"
- /></input>{{imagelink.length}}
+ /></imagegroup>
+</div>
 <div class="input-group">
 	<!--
 	<form id="todo-form" ng-submit="addTodo()">
 -->
-<span class="input-group-addon" smilies-selector="input.wholeMsg" smilies-placement="right" smilies-title="Smilies"></span>
+<span class="input-group-addon" smilies-selector="input.wholeMsg" smilies-placement="right" smilies-title="Smilies" id = "emoji"></span>
 <textarea  type="text" id="new-todo" class="form-control"
 placeholder="Search or Post Question"
 ng-model="input.wholeMsg" autofocus></textarea>
 <span class="input-group-btn">
-	<button class="btn btn-default" type="button" ng-click="addTodo()">Ask</button>
+	<button class="btn btn-default" id= "Ask" type="button" ng-click="addTodo()">Ask</button>
 </span>
 </div><!-- /input-group -->
 
@@ -88,16 +90,17 @@ ng-model="input.wholeMsg" autofocus></textarea>
 			<!-- switch -->
 			<span ng-switch-when="?" class="glyphicon glyphicon-question-sign"></span>
 			<span ng-switch-when="!" class="glyphicon glyphicon-ice-lolly"></span>
-			<span ng-class="{completed: todo.completed}"><span ng-class="{completed: todo.completed}"><span ng-bind-html = "todo.head|smilies"></span></span></span>
+			<span ng-class="{completed: todo.completed}"><span ng-class="{completed: todo.completed}"><span ng-bind-html = "todo.head|smilies"></span></span></span> 
             <span ng-show="todo.quote.length - 1" ng-class="{completed: todo.completed}"><blockquote style="font-size: 80%"><footer>{{todo.quote}}</footer></blockquote></span>
+            
             <span ng-show="todo.image.length" ng-class="{completed: todo.completed}"><br><br><img src = {{todo.image}}><br><br></img></span>
 		</h4>
 
 <p class="list-group-item-text">
-
+			<br>
             <p class="list-group-item-text"><span ng-bind-html="todo.trustedDesc"></span>
             created: {{todo.timeString}}<span ng-app="angularMoment" am-time-ago="todo.timestamp"></span>
-			<span ng-show="todo.tags">tags: <span ng-repeat = "n in todo.tags"> <a href="#"><span class="label label-success" ng-click = "movetags(n)">{{n}}</span></a></span></span></p>
+			<span ng-show="todo.tags">tags: <span ng-repeat = "n in todo.tags"> <a href="#"><span class="label label-success" ng-click = "movetags(n)">{{n}}</span></a></span></span></p><br>
 
 			<button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="addEcho(todo)" ng-disabled="$storage[todo.$id]">Like</button>
             

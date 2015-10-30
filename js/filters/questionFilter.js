@@ -35,4 +35,3 @@ todomvc.filter('questionFilter', function () {
     return newQuestions.concat(sorted);
   };
 });
-
