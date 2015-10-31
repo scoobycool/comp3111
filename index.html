@@ -1,100 +1,298 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
+
 <head>
-   	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="icon" href="../../favicon.ico">
 
-	<title>Question Room</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Custom styles for this template -->
-	<link href="css/cover.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+
 </head>
+
 <body ng-controller="controller">
-	<div class="site-wrapper">
-		<div class="site-wrapper-inner">
-			<div class="cover-container">
-				<div class="masthead clearfix">
-					<div class="inner">
-						<h3 class="masthead-brand">Question Room</h3>
-						<nav>
-							<ul class="nav masthead-nav">
-								<li class="active"><a href="#">Home</a></li>
-								<li><a href="#">Features</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
 
-				<div class="inner cover">
-					<h1 class="cover-heading">Ask More Questions!</h1>
-					<p class="lead">This totally anonymous and real-time updating question moderated system permits students to ask more questions in a typical class setting.
-						Simply join a question room using a simple name (such as comp3111).</p>
-						<p class="lead" class="col-md-2 col-md-offset-5">
-							<form name="form" ng-submit="join()" class="navbar-form navbar-left" role="search">
-								<input type="text" name = "input" class="form-control large"
-								ng-model="example.text"
-								ng-pattern="example.word" required
-								ng-trim="false"
-								autofocus
-								aria-describedby="sizing-addon1"
-								placeholder="Room name">
-								<a href="#" class="btn btn-lg btn-default"
-								ng-hide="form.input.$error.required || form.input.$error.pattern"
-								ng-click="join()"
-								>Join</a>
-							</form>
-						</p>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">QueChat</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#chatroom">Chatroom</a>
+                    </li>
+                    <li>
+                        <a href="#aboutus">About Us</a>
+                    </li>
+                    <!--<li>
+                        <a href="#contact">Contact</a>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-						<div class="alert alert-warning" role="alert" ng-show="form.input.$error.required">
-							Room name is required!</div>
-							<div class="alert alert-warning" role="alert" ng-show="form.input.$error.pattern">
-								Room name must be a single English word!
-							</div>
 
-						</div>
+    <!-- Header -->
+    <a name="chatroom"></a>
+    <div class="intro-header">
+        <div class="container">
 
-						<div class="mastfoot">
-							<div class="inner">
-								<p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-							</div>
-						</div>
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                    <div class="intro-message">
+                        <h1>QueChat</h1>
+                        <h3>Type in a course name.</h3>
+                        
+                            <!--<span class="input-group-btn">
+                                <a href="#" class="btn btn-default"
+                                ng-hide="form.input.$error.required || form.input.$error.pattern"
+                                ng-click="join()"
+                                >Join</a>
+                            </span>--><!--
+                            <form name="form" ng-submit="join()"  role="search">
+                            <input type="text" name="input" class="form-control large" 
+                                ng-model="example.text"
+                                ng-pattern="example.word" required
+                                ng-trim="false"
+                                autofocus
+                                aria-describedby="sizing-addon1" placeholder="Course Name">
+                                  <a href="#" class="btn btn-default" ng-click="join()">Join</a>
+                            </form>-->
+                            <p class="course" class="col-md-2">
+                            <form name="form" ng-submit="join()" role="search">
+                                <input type="text" name = "input" class="form-control"
+                                ng-model="example.text"
+                                ng-pattern="example.word" required
+                                ng-trim="false"
+                                autofocus
+                                aria-describedby="sizing-addon1"
+                                placeholder="Course Name">
+                                <button type="button" class="btn btn-warning btn-md btn-block"
+                                ng-hide="form.input.$error.required || form.input.$error.pattern"
+                                ng-click="join()"
+                                >Join</button>
+                            </form>
+                            </p>
 
-					</div>
+                        <div class="alert alert-warning" role="alert" ng-show="form.input.$error.required">
+                            Course name is required!</div>
+                            <div class="alert alert-warning" role="alert" ng-show="form.input.$error.pattern">
+                                Course name must be a single English word!
+                            </div>
 
-				</div>
+                        <hr class="intro-divider">
+                        <h3>Hottest Groups</h3>
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="#" class="btn btn-default btn-lg" ng-model="example.course1" ng-click="join1()"><span class="network-name">COMP3111</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-default btn-lg" ng-model="example.course2" ng-click="join2()"><span class="network-name">COMP2012</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-default btn-lg" ng-model="example.course3" ng-click="join3()"><span class="network-name">COMP3021</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-			</div>
+        </div>
+        <!-- /.container -->
 
-			<!-- Bootstrap core JavaScript
-			================================================== -->
-			<!-- Placed at the end of the document so the pages load faster -->
-			<script src="js/lib/jquery.min.js"></script>
-			<script src="js/lib/bootstrap.min.js"></script>
+    </div>
+    <!-- /.intro-header -->
 
-			<!-- 1.4.2 -->
-			<script src="js/lib/angular.min.js"></script>
+    <!-- Page Content -->
 
-			<script>
-			angular.module('app', [])
-			.controller('controller', ['$scope', '$location', '$window', function($scope, $location, $window) {
-				$scope.example = {
-					text: '',
-					word: /^\s*\w*\s*$/
-				};
+	<a name="aboutus"></a>
+    <div class="content-section-a">
 
-				$scope.join = function () {
-					$window.location.href = 'question.html#/' + $scope.example.text;
-				}
-			}]);
-			</script>
-		</body>
-		</html>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">AFK<br>COMP3111 Project Team</h2>
+                    <p class="lead">We are a team that wish to make a difference in classroom learning. Our goal is to create a better interactivity between students and teachers.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/afk.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+<!--
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
+                    <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="img/dog.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    <!--</div>
+    <!-- /.content-section-b -->
+<!--
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
+                    <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/phones.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    <!-- </div>
+    <!-- /.content-section-a --> 
+
+	<a  name="contact"></a>
+    <div class="banner">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Let's QueChat!</h2>
+                </div><!--
+                <div class="col-lg-6">
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                        </li>
+                    </ul>
+                </div>-->
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.banner -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#chatroom">Chatroom</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#aboutus">About Us</a>
+                        </li><!--
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>-->
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; AFK. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/lib/bootstrap.min.js"></script>
+
+    <script src="js/lib/angular.min.js"></script>
+
+            <script>
+            angular.module('app', [])
+            .controller('controller', ['$scope', '$location', '$window', function($scope, $location, $window) {
+                $scope.example = {
+                    text: '',
+                    word: /^\s*\w*\s*$/,
+                    course1: 'COMP3111',
+                    course2: 'COMP2012',
+                    course3: 'COMP3021'
+                };
+
+                $scope.join = function () {
+                    $window.location.href = 'question.html#/' + $scope.example.text;
+                }
+
+                $scope.join1 = function () {
+                    $window.location.href = 'question.html#/' + $scope.example.course1;
+                }
+
+                $scope.join2 = function () {
+                    $window.location.href = 'question.html#/' + $scope.example.course2;
+                }
+
+                $scope.join3 = function () {
+                    $window.location.href = 'question.html#/' + $scope.example.course3;
+                }
+
+            }]);
+            </script>
+
+</body>
+
+</html>
