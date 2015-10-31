@@ -4,3 +4,4 @@ node_modules
 .idea/tasks.xml
 *.iws
 coverage
+*.db

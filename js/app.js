@@ -9,6 +9,7 @@
 */
 var myapp = angular.module('myapp', ['angularMoment']);
 
-var todomvc = angular.module('todomvc', ['firebase', 'ngStorage','ngSanitize','ui.bootstrap','angular-smilies']);
+var todomvc = angular.module('todomvc', ['firebase', 'ngStorage','ngSanitize','ui.bootstrap','angular-smilies','ng-uploadcare']);
+
 
 var emoji = angular.module("myApp", ['ngSanitize', 'emojiApp']);
