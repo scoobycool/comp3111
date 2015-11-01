@@ -24,6 +24,17 @@ body{
 .absolute {
     position: absolute;
 }
+
+
+.header{
+	background-color: white;
+}
+
+.headerimg{
+font-weight: bold;
+padding-bottom: 62px;
+background-image:url("header.jpg");
+}
 .input-group #emoji{
 	position:relative;
 	left:150px;
@@ -40,16 +51,37 @@ body{
 	position:relative;
 	left: 150px;
     border:             2px solid #a9c6c9;
-    vertical-align:         middle;
-    padding:             9px;
+    vertical-align:       middle;
     height:             129px;
-    border-collapse:         collapse;
+    border-collapse:    collapse;
     padding:             2px;
-    width:             16.2in;
+    width: 86%;
     z-index:             1;
     font-family: calibri;
    }
+#todo-list {
+  padding-left: 0;
+  margin-bottom: 20px;
+}
 
+#todo-list .list-group-item {
+  position: relative;
+  display: block;
+  margin-bottom: -1px;
+  background-color: #ffffff;
+  border: 4px solid #5bc0de;
+}
+
+#todo-list .list-group-item:first-child {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+#todo-list .list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
 #todo-list{
 position: relative;
 display: block;
@@ -59,7 +91,7 @@ padding: 0px 150px;
 #toTop{
 	position: fixed;
 	bottom: 95px;
-	right: 40px;
+	right: 30px;
 	cursor: pointer;
 }
 #toTop .fa {margin-right: 5px;}
