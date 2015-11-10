@@ -111,13 +111,23 @@ ng-model="input.wholeMsg" autofocus></textarea>
             <div style="font-size: 11px !important; color: #aaaaaa;">created: {{todo.timestamp | fromNow}}</div><span ng-app="angularMoment" am-time-ago="todo.timestamp"></span>
 			<span ng-show="todo.tags">tags: <span ng-repeat = "n in todo.tags"> <a href="#"><span class="label label-success" ng-click = "movetags(n)">{{n}}</span></a></span></span></p>
 
-			<button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="addEcho(todo)" ng-disabled="$storage[todo.$id]">Like</button>
+			<button class="btn btn-default btn-xs glyphicon glyphicon-hand-up" ng-click="addEcho(todo)" ng-init="todo.chlid='Like'; todo.hasLiked=false">{{todo.chlid}}</button>
             
            
-            <button class="btn btn-default btn-xs glyphicon glyphicon-hand-down" ng-click="dislike(todo)" ng-disabled="$storage[todo.$id]">Dislike</button>
+            <button class="btn btn-default btn-xs glyphicon glyphicon-hand-down" ng-click="dislike(todo)" ng-init="todo.chdid='Dislike'; todo.hasDisliked=false">{{todo.chdid}}</button>
             
             <button class="btn btn-default btn-xs glyphicon glyphicon-tags" ng-click="quote(todo)">Quote</button>
             
+            <button class="btn btn-default btn-xs glyphicon glyphicon-tags" ng-click="popbox =!popbox">Comment</button>
+
+            <div class="reply-group" ng-show="popbox">
+
+            <span class="reply-group-addon" smilies-selector="input.wholeReply" smilies-placement="right" smilies-title="Smilies" id = "emoji"></span>
+            <textarea type="text" id="reply-todo" class="form-control" placeholder="Write comment"ng-model="input.wholeReply" autofocus></textarea>
+            <span class="reply-group-btn">
+            <button class="btn btn-default" id= "Reply" type="button" ng-click="addReply()">Reply</button></span>
+
+            </div>            
             
 			<button ng-show="isAdmin" class="btn btn-default btn-xs glyphicon glyphicon-check" ng-click="toggleCompleted(todo)">Toggle Completed</button>
 			&nbsp;
