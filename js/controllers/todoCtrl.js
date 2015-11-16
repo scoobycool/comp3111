@@ -141,25 +141,66 @@ $scope.editTodo = function (todo) {
 };
 
 $scope.addEcho = function (todo) {
-	$scope.editedTodo = todo;
-	todo.echo = todo.echo + 1;
-	// Hack to order using this order.
-	todo.order = todo.order -1;
-	$scope.todos.$save(todo);
 
-	// Disable the button
-	$scope.$storage[todo.$id] = "echoed";
+if(!todo.hasLiked){
+		todo.hasLiked = true;
+		//like
+		$scope.editedTodo = todo;
+		todo.echo = todo.echo + 1;
+		// Hack to order using this order.
+		todo.order = todo.order -1;
+
+		$scope.$storage[todo.$id] = "Unlike";
+		todo.chlid = "Unlike";
+
+		$scope.todos.$save(todo);
+
+	}
+
+	else {
+		todo.hasLiked = false;
+		//dislike
+		$scope.editedTodo = todo;
+		todo.echo = todo.echo - 1;
+		// Hack to order using this order.
+		todo.order = todo.order +1;
+
+		todo.chlid = "Like";
+
+		$scope.todos.$save(todo);
+
+	}
 };
  
  $scope.dislike = function (todo) {
-	$scope.editedTodo = todo;
-	todo.echo = todo.echo - 1;
-	// Hack to order using this order.
-	todo.order = todo.order +1;
-	$scope.todos.$save(todo);
- 
-	// Disable the button
-	$scope.$storage[todo.$id] = "echoed";
+ 	if(!todo.hasDisliked){
+		todo.hasDisliked = true;
+		//dislike
+		$scope.editedTodo = todo;
+		todo.echo = todo.echo - 1;
+		// Hack to order using this order.
+		todo.order = todo.order +1;
+
+		$scope.$storage[todo.$id] = "Undislike";
+		todo.chdid = "Undislike";
+
+		$scope.todos.$save(todo);
+
+	}
+
+	else {
+		todo.hasDisliked = false;
+		//like
+		$scope.editedTodo = todo;
+		todo.echo = todo.echo + 1;
+		// Hack to order using this order.
+		todo.order = todo.order -1;
+
+		todo.chdid = "Dislike";
+
+		$scope.todos.$save(todo);
+
+	}
  };
  
  $scope.quote = function (todo) {
@@ -171,6 +212,45 @@ $scope.addEcho = function (todo) {
  }
  };
  
+
+$scope.commentInit = function (todo) {
+ 	todo.popbox = false;
+ };
+ 
+
+$scope.addReply = function () {
+	var newTodo = $scope.input.wholeReply.trim();
+	// No input, so just do nothing
+	if (!newTodo.length) {
+		return;
+	}
+
+	var firstAndLast = $scope.getFirstAndRestSentence(newTodo);
+	var head = firstAndLast[0];
+	var desc = firstAndLast[1];
+	var imglink = $scope.imagelink;
+	if (!($scope.imagelink)){
+		imglink = '';
+	}
+	$scope.todos.$add({
+		wholeMsg: newTodo,
+		head: head,
+		headLastChar: head.slice(-1),
+		desc: desc,
+		linkedDesc: Autolinker.link(desc, {newWindow: false , stripPrefix: false}),
+		completed: false,
+		timestamp: new Date().getTime(),
+		tags: "...",
+		echo: 0,
+		order: 0,
+        quote: quoteMsg,
+        image: imglink,
+	});
+	// remove the posted question in the input
+	$scope.imagelink ='';
+    quoteMsg=" ";
+	$scope.input.wholeReply = '';
+};
 
 $scope.doneEditing = function (todo) {
 	$scope.editedTodo = null;
