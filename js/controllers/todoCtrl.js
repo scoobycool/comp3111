@@ -31,7 +31,7 @@ if (!roomId || roomId.length === 0) {
 }
 
 // TODO: Please change this URL for your app
-var firebaseURL = "https://comp3111proj.firebaseio.com/";
+var firebaseURL = "https://glaring-heat-3250.firebaseio.com/";
 
 $scope.roomId = roomId;
 var url = firebaseURL + roomId + "/questions/";
@@ -79,6 +79,19 @@ $scope.$watchCollection('todos', function () {
 }, true);
 
 // Get the first sentence and rest
+
+$scope.getYoutube = function($text){
+
+    var re = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\S*[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|<\/a>))[?=&+%\w.-]*/ig;
+    return $text.match(re);
+
+};
+
+$scope.getImgur = function($text){
+	var re = /http:\/\/(.*imgur\.com\/.*)/i;
+	return $text.match(re);
+};
+
 $scope.getFirstAndRestSentence = function($string) {
 	var head = $string;
 	var desc = "";
@@ -111,6 +124,8 @@ $scope.addTodo = function () {
 	var head = firstAndLast[0];
 	var desc = firstAndLast[1];
 	var imglink = $scope.imagelink;
+	var youtubeurl = $scope.getYoutube(newTodo);
+	var imgururl = $scope.getImgur(newTodo);
 	if (!($scope.imagelink)){
 		imglink = '';
 	}
@@ -122,6 +137,8 @@ $scope.addTodo = function () {
 		linkedDesc: Autolinker.link(desc, {newWindow: false, stripPrefix: false}),
 		completed: false,
 		timestamp: new Date().getTime(),
+		youtube: youtubeurl,
+		imgur: imgururl,
 		tags: "...",
 		echo: 0,
 		order: 0,
@@ -212,44 +229,22 @@ if(!todo.hasLiked){
  }
  };
  
-
-$scope.commentInit = function (todo) {
- 	todo.popbox = false;
- };
  
 
-$scope.addReply = function () {
-	var newTodo = $scope.input.wholeReply.trim();
+$scope.addReply = function (todo) {
+	var newTodo = todo.input.wholeReply.trim();
 	// No input, so just do nothing
 	if (!newTodo.length) {
 		return;
 	}
-
-	var firstAndLast = $scope.getFirstAndRestSentence(newTodo);
-	var head = firstAndLast[0];
-	var desc = firstAndLast[1];
-	var imglink = $scope.imagelink;
-	if (!($scope.imagelink)){
-		imglink = '';
+	if(todo.reply){
+	 todo.reply.push(newTodo);
+	} else{
+		todo.reply = [newTodo];
 	}
-	$scope.todos.$add({
-		wholeMsg: newTodo,
-		head: head,
-		headLastChar: head.slice(-1),
-		desc: desc,
-		linkedDesc: Autolinker.link(desc, {newWindow: false , stripPrefix: false}),
-		completed: false,
-		timestamp: new Date().getTime(),
-		tags: "...",
-		echo: 0,
-		order: 0,
-        quote: quoteMsg,
-        image: imglink,
-	});
+	 todo.input.wholeReply = '';
+	 $scope.todos.$save(todo);
 	// remove the posted question in the input
-	$scope.imagelink ='';
-    quoteMsg=" ";
-	$scope.input.wholeReply = '';
 };
 
 $scope.doneEditing = function (todo) {
