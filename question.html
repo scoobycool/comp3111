@@ -93,7 +93,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 
 
 <div class="list-group" id="todo-list">
-	<span class="list-group-item" ng-repeat="todo in todos | filter:input | questionFilter:maxQuestion" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+	<span class="list-group-item" ng-repeat="todo in todos | filter:input.wholeMsg | questionFilter:maxQuestion" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
 		<h4 class="list-group-item-heading" ng-switch on="todo.headLastChar">
 			<span class="label label-danger" ng-show="todo.new">New</span>
 			<span class="badge">{{todo.echo}}</span>
@@ -122,10 +122,9 @@ ng-model="input.wholeMsg" autofocus></textarea>
 
             <div class="reply-group" ng-show="popbox">
 
-            <span class="reply-group-addon" smilies-selector="input.wholeReply" smilies-placement="right" smilies-title="Smilies" id = "emoji"></span>
-            <textarea type="text" id="reply-todo" class="form-control" placeholder="Write comment"ng-model="input.wholeReply" autofocus></textarea>
-            <span class="reply-group-btn">
-            <button class="btn btn-default" id= "Reply" type="button" ng-click="addReply()">Reply</button></span>
+            <span class="reply-group-addon" smilies-selector="todo.input.wholeReply" smilies-placement="right" smilies-title="Smilies" id = "emoji"></span>
+            <textarea type="text" id="reply-todo" class="form-control" placeholder="Write comment"ng-model="todo.input.wholeReply" autofocus></textarea>
+            <button class="btn btn-default" id= "Reply" type="button" ng-click="addReply(todo)">Reply</button>
 
             </div>            
             
