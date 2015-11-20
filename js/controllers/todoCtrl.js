@@ -8,8 +8,8 @@
 */
 
 todomvc.controller('TodoCtrl',
-['$scope', '$location', '$firebaseArray', '$sce', '$localStorage', '$window',
-function ($scope, $location, $firebaseArray, $sce, $localStorage, $window) {
+['$scope', '$location', '$firebaseArray', '$sce', '$localStorage', '$window','$firebaseObject',
+function ($scope, $location, $firebaseArray, $sce, $localStorage, $window , $firebaseObject) {
 	// set local storage
 	$scope.$storage = $localStorage;
 
@@ -32,10 +32,19 @@ if (!roomId || roomId.length === 0) {
 
 // TODO: Please change this URL for your app
 var firebaseURL = "https://glaring-heat-3250.firebaseio.com/";
+var liveURL = "https://glaring-heat-3250.firebaseio.com/live";
+
 
 $scope.roomId = roomId;
 var url = firebaseURL + roomId + "/questions/";
 var echoRef = new Firebase(url);
+var liveRef = new Firebase(liveURL);
+
+var syncObject = $firebaseObject(liveRef);
+syncObject.$bindTo($scope, "data");
+
+
+
 
 var query = echoRef.orderByChild("order");
 // Should we limit?
@@ -43,7 +52,7 @@ var query = echoRef.orderByChild("order");
 $scope.todos = $firebaseArray(query);
 
 //$scope.input.wholeMsg = '';
-$scope.editedTodo = null;
+$scope.editedTodo = null;	
 
  //-------Added by longq-------
  var quoteMsg=" ";
@@ -51,6 +60,7 @@ $scope.editedTodo = null;
  
 // pre-precessing for collection
 $scope.$watchCollection('todos', function () {
+	$scope.data.live = $scope.data.live + 1;
 	var total = 0;
 	var remaining = 0;
 	$scope.todos.forEach(function (todo) {
@@ -77,6 +87,8 @@ $scope.$watchCollection('todos', function () {
 	$scope.allChecked = remaining === 0;
 	$scope.absurl = $location.absUrl();
 }, true);
+
+
 
 // Get the first sentence and rest
 
@@ -301,6 +313,8 @@ $scope.FBLogin = function () {
 	});
 };
 
+
+
 $scope.FBLogout = function () {
 	var ref = new Firebase(firebaseURL);
 	ref.unauth();
@@ -313,8 +327,6 @@ $scope.increaseMax = function () {
 		$scope.maxQuestion+=scrollCountDelta;
 	}
 };
-
-
 $scope.movetags = function(tag){
 	$scope.input.wholeMsg = tag;
 	$window.scrollTo(0,0);
@@ -346,6 +358,7 @@ angular.element($window).bind("scroll", function() {
 		$scope.$apply();
 	}
 });
+
  
  
 
