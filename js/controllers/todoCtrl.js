@@ -156,6 +156,9 @@ $scope.addTodo = function () {
 		order: 0,
         quote: quoteMsg,
         image: imglink,
+                      
+        name: $authData.facebook.displayName,
+        fbIcon:facebook.profileImageURL,
 	});
 	// remove the posted question in the input
 	$scope.imagelink ='';
