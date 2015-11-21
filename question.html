@@ -32,12 +32,40 @@
             </script>
 </head>
 <body ng-controller="TodoCtrl">
+<nav class="navbar navbar-default" id="nav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">QueChat</a>
+    </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+     
+        <li class="navbar-text">&nbsp; Current Visitors: {{data1}}</li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User's List <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="name in namelist">{{name.user_id}}</li>
+          </ul>
+        </li>
+      </ul>
+    
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 	<div class = "header">
 	<font size="10"></i>  Questions for {{roomId}}</font>&nbsp;
 
 	<!--
-
 	<a ng-class="{selected: location.path() == '/newechos'}" class="btn btn-primary" href="#/newechos">New Echos</a>
 	<a ng-class="{selected: location.path() == '/tags'}" class="btn btn-success" href="#/tags">Tags</a>
 	<a ng-class="{selected: location.path() == '/users'}" class="btn btn-info" href="#/users">Users</a>
@@ -59,10 +87,7 @@
 <br>
 </div>
 
-<br>
 
-{{namelist}}----------------{{data0}}
-<h4> &nbsp; Current Visitors: {{data1}}</h4>
 <br><br>
 <div class = "imagegroup">
 <input id="imagepicker"
@@ -162,7 +187,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 <script src="js/directives/angular-uploadcare.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-sanitize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" charset="utf-8"></script>
 <script src="https://ucarecdn.com/widget/2.5.5/uploadcare/uploadcare.min.js" charset="utf-8"></script>
 <!-- Ng storage 0.3.6  -->
 <script src="js/lib/ngStorage.min.js"></script>
@@ -175,7 +200,10 @@ ng-model="input.wholeMsg" autofocus></textarea>
 <script src="js/lib/moment.js"></script>
 <script src="js/filters/momentFilter.js"></script>
 
+<!-- jQuery library -->
 
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 </html>

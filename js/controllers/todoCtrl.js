@@ -40,7 +40,7 @@ var url = firebaseURL + roomId + "/questions/";
 var echoRef = new Firebase(url);
 var listRef = new Firebase("https://glaring-heat-3250.firebaseio.com/presence/");
 
-var userRef = listRef.push({'user_id': 'fred'});
+var userRef = listRef.push({'user_id': 'anonymous'});
 
 // Add ourselves to presence list when online.
 var presenceRef = new Firebase("https://glaring-heat-3250.firebaseio.com/.info/connected");
