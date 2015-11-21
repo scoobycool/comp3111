@@ -16,7 +16,9 @@
 body{
 	background-image: url("bg.jpg")
 }
-
+#nav{
+  margin-bottom: 0px;
+}
 .relative {
     position: relative;
 }
