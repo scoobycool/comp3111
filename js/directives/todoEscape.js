@@ -16,6 +16,7 @@ todomvc.directive('todoBlur', function () {
 
 		scope.$on('$destroy', function () {
 			elem.unbind('keydown');
+			
 		});
 	};
 });
