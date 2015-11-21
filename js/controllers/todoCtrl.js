@@ -38,18 +38,34 @@ var liveURL = "https://glaring-heat-3250.firebaseio.com/live";
 $scope.roomId = roomId;
 var url = firebaseURL + roomId + "/questions/";
 var echoRef = new Firebase(url);
-var liveRef = new Firebase(liveURL);
+var listRef = new Firebase("https://glaring-heat-3250.firebaseio.com/presence/");
 
-var syncObject = $firebaseObject(liveRef);
-syncObject.$bindTo($scope, "data");
+var userRef = listRef.push({'user_id': 'fred'});
 
+// Add ourselves to presence list when online.
+var presenceRef = new Firebase("https://glaring-heat-3250.firebaseio.com/.info/connected");
+presenceRef.on("value", function(snap) {
+  if (snap.val()) {
+    // Remove ourselves when we disconnect.
+    userRef.onDisconnect().remove();
+  }
+});
 
-
+// Number of online users is the number of objects in the presence list.
+listRef.once("value", function(snapshot) {
+  $scope.data1  = snapshot.numChildren();
+  // a === 1 ("name")
+});
 
 var query = echoRef.orderByChild("order");
+var query2 = listRef.orderByKey();
 // Should we limit?
 //.limitToFirst(1000);
 $scope.todos = $firebaseArray(query);
+$scope.namelist = $firebaseArray(query2);
+
+var syncObject = $firebaseObject(userRef);
+syncObject.$bindTo($scope, "data0");
 
 //$scope.input.wholeMsg = '';
 $scope.editedTodo = null;	
@@ -60,7 +76,6 @@ $scope.editedTodo = null;
  
 // pre-precessing for collection
 $scope.$watchCollection('todos', function () {
-	$scope.data.live = $scope.data.live + 1;
 	var total = 0;
 	var remaining = 0;
 	$scope.todos.forEach(function (todo) {
@@ -89,9 +104,10 @@ $scope.$watchCollection('todos', function () {
 }, true);
 
 
-
 // Get the first sentence and rest
-
+$scope.live = function(){
+	$scope.data.live = $scope.data.live -1;
+}
 $scope.getYoutube = function($text){
 
     var re = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\S*[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|<\/a>))[?=&+%\w.-]*/ig;
@@ -306,6 +322,7 @@ $scope.FBLogin = function () {
 		} else {
 			$scope.$apply(function() {
 				$scope.$authData = authData;
+				$scope.data0.user_id = authData.facebook.id;
 				$scope.isAdmin = true;
 			});
 			console.log("Authenticated successfully with payload:", authData);
@@ -316,6 +333,7 @@ $scope.FBLogin = function () {
 
 
 $scope.FBLogout = function () {
+	$scope.data0.user_id = "fred";
 	var ref = new Firebase(firebaseURL);
 	ref.unauth();
 	delete $scope.$authData;
