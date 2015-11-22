@@ -129,7 +129,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 			<span ng-switch-when="!" class="glyphicon glyphicon-ice-lolly"></span>
 			<span ng-class="{completed: todo.completed}"><span ng-class="{completed: todo.completed}"><span ng-bind-html = "todo.head|smilies"></span></span></span> 
             <span ng-show="todo.quote.length - 1" ng-class="{completed: todo.completed}"><br><br><blockquote style="font-size: 80%"><footer><i class="fa fa-quote-left"></i> {{todo.quote}}</footer></blockquote></span>
-            <br><br><span ng-class="{completed: todo.completed}"><iframe width="420" height="315" src= {{sce(todo.youtube)}}></iframe></span>
+            <br><br><span ng-show="todo.youtube.length" ng-class="{completed: todo.completed}"><iframe width="420" height="315" src= {{sce(todo.youtube)}}></iframe></span>
             <span ng-show="todo.image.length" ng-class="{completed: todo.completed}"><br><br><img src = {{todo.image}}><br><br></img></span>
 		</h4>
 
