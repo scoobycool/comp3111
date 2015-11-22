@@ -43,7 +43,7 @@ todomvc.filter('questionFilter', function () {
         if (a.timestamp == b.timestamp) {
           return b.echo - a.echo;
         }
-        return a.timestamp - b.timestamp;
+        return b.timestamp - a.timestamp;
       });
 	  }
 	  
