@@ -109,11 +109,15 @@ $scope.live = function(){
 	$scope.data.live = $scope.data.live -1;
 }
 $scope.getYoutube = function($text){
-
     var re = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\S*[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|<\/a>))[?=&+%\w.-]*/ig;
-    return $text.match(re);
-
+    var match = $text.match(re);
+    if(match!=null){
+    var res = match[0].split("v=");
+    return "https://www.youtube.com/embed/" + res[1];}
+    else{return null;}
+        
 };
+
 
 $scope.getImgur = function($text){
 	var re = /http:\/\/(.*imgur\.com\/.*)/i;
@@ -152,7 +156,7 @@ $scope.addTodo = function () {
 	var head = firstAndLast[0];
 	var desc = firstAndLast[1];
 	var imglink = $scope.imagelink;
-	var youtubeurl = $scope.getYoutube(newTodo);
+	var youtubeurl = $scope.getYoutube (newTodo);
 	var imgururl = $scope.getImgur(newTodo);
 	var user_id = $scope.data0.user_id
 	if (!($scope.imagelink)){
@@ -222,6 +226,8 @@ if(!todo.hasLiked){
 
 	}
 };
+
+ $scope.sce = $sce.trustAsResourceUrl;
  
  $scope.dislike = function (todo) {
  	if(!todo.hasDisliked){
