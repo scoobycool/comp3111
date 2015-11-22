@@ -117,13 +117,14 @@ ng-model="input.wholeMsg" autofocus></textarea>
 </span>
 </div><!-- /input-group -->
 <!--select filter-->
-<button class="btn btn-default"><ng-click="filterSelection='echo'">Sort by likes</button>
-<button class="btn btn-default"><ng-click="filterSelection='time'">Sort by time</button>
+<select ng-model="filterType">
+		<option value=0>echo</option>
+		<option value=1>time</option>
+	</select>
 
 <div class="list-group" id="todo-list">
-	<span class="list-group-item" ng-repeat="todo in todos | filter:input.wholeMsg | questionFilter:maxQuestion:filterSelection" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+	<span class="list-group-item" ng-repeat="todo in todos | filter:input.wholeMsg | questionFilter:maxQuestion:filterType" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
 		<h4 class="list-group-item-heading" ng-switch on="todo.headLastChar">
-			<span class="label label-primary" ng-show`="todo.mostLiked">Best Reply!</span>
 			<span class="label label-danger" ng-show="todo.new">New</span>
 			<span class="badge">{{todo.echo}}</span>
 			<!-- switch -->
