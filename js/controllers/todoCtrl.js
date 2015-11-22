@@ -40,7 +40,7 @@ var url = firebaseURL + roomId + "/questions/";
 var echoRef = new Firebase(url);
 var listRef = new Firebase("https://glaring-heat-3250.firebaseio.com/presence/");
 
-var userRef = listRef.push({'user_id': 'anonymous'});
+var userRef = listRef.push({'user_name': 'anonymous'});
 
 // Add ourselves to presence list when online.
 var presenceRef = new Firebase("https://glaring-heat-3250.firebaseio.com/.info/connected");
@@ -154,8 +154,12 @@ $scope.addTodo = function () {
 	var imglink = $scope.imagelink;
 	var youtubeurl = $scope.getYoutube(newTodo);
 	var imgururl = $scope.getImgur(newTodo);
+	var user_id = $scope.data0.user_id
 	if (!($scope.imagelink)){
 		imglink = '';
+	}
+	if(!($scope.data0.user_id)){
+		user_id = null;
 	}
 	$scope.todos.$add({
 		wholeMsg: newTodo,
@@ -172,9 +176,8 @@ $scope.addTodo = function () {
 		order: 0,
         quote: quoteMsg,
         image: imglink,
-                      
-        name: $authData.facebook.displayName,
-        fbIcon:facebook.profileImageURL,
+        name:$scope.data0.user_name,
+        id:user_id
 	});
 	// remove the posted question in the input
 	$scope.imagelink ='';
@@ -265,16 +268,20 @@ if(!todo.hasLiked){
 $scope.addReply = function (todo) {
 	var newTodo = todo.input.wholeReply.trim();
 	// No input, so just do nothing
+	var user_id = $scope.data0.user_id;
+	if(!($scope.data0.user_id)){
+		user_id = null;
+	}
 	if (!newTodo.length) {
 		return;
 	}
 	if(todo.reply){
-	 todo.reply.push(newTodo);
-	} else{
-		todo.reply = [newTodo];
-	}
-	 todo.input.wholeReply = '';
+	 todo.reply.push({msg:newTodo,timestamp: new Date().getTime(),echo:0, name:$scope.data0.user_name,id:user_id});
 	 $scope.todos.$save(todo);
+	} else{
+	 todo.reply = [{msg:newTodo,timestamp: new Date().getTime(),echo:0, name:$scope.data0.user_name,id:user_id}];
+	 todo.input.wholeReply = '';
+	 $scope.todos.$save(todo);}
 	// remove the posted question in the input
 };
 
@@ -325,6 +332,7 @@ $scope.FBLogin = function () {
 		} else {
 			$scope.$apply(function() {
 				$scope.$authData = authData;
+				$scope.data0.user_name =  authData.facebook.displayName;
 				$scope.data0.user_id = authData.facebook.id;
 				$scope.isAdmin = true;
 			});
@@ -336,7 +344,8 @@ $scope.FBLogin = function () {
 
 
 $scope.FBLogout = function () {
-	$scope.data0.user_id = "fred";
+	$scope.data0.user_name = "anonymous";
+	$scope.data0.user_id = null;
 	var ref = new Firebase(firebaseURL);
 	ref.unauth();
 	delete $scope.$authData;
