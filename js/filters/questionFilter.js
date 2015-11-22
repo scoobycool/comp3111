@@ -7,7 +7,7 @@
 *
 */
 todomvc.filter('questionFilter', function () {
-  return function (input, max) {
+  return function (input, max,filterSelection) {
     var sorted = [];
     var newQuestions = [];
     var sortedCount = 0;
@@ -23,15 +23,24 @@ todomvc.filter('questionFilter', function () {
 
       // sorting new questions based on the time if echo is the same.
       // Newer ones are on the top
+	  if(filterSelection=="echo"){
       newQuestions.sort(function(a, b) {
         if (a.echo == b.echo) {
           return b.timestamp - a.timestamp;
         }
         return b.echo - a.echo;
       });
-    });
-
+	  }
+	  else if(filterSelection=="time"){
+		sorted.sort(function(a, b) {
+        if (a.timestamp == b.timestamp) {
+          return b.echo - a.echo;
+        }
+        return a.timestamp - b.timestamp;
+      });}
+	});
     // Combined list
+	sorted[0].mostLiked = true;
     return newQuestions.concat(sorted);
   };
 });
