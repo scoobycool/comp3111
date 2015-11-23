@@ -35,6 +35,12 @@ describe('controllers unit test', function(){
     });
     var results = scope.getFirstAndRestSentence("Hello? This is Sung");
     expect(results[0]).toEqual('Hello?');
+    var results = scope.getFirstAndRestSentence("");
+    expect(results[0]).toEqual('');
+    var results = scope.getFirstAndRestSentence("Hello.XD?");
+    expect(results[0]).toEqual('Hello.');
+    var results = scope.getFirstAndRestSentence("Hello\nXD.gg?");
+    expect(results[0]).toEqual('Hello\n');
   }));
 
 });

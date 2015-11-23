@@ -160,9 +160,9 @@ describe('TodoCtrl', function() {
 
         
         scope.input = {wholeMsg: "hi"};
-        scope.todo = {echo:0,order:1,todo.hasLiked:false};
+        scope.todo = {echo:0,order:1,hasLiked:false};
         scope.addEcho(scope.todo);
-        scope.todo = {echo:0,order:1,todo.hasLiked:true};
+        scope.todo = {echo:0,order:1,hasLiked:true};
         scope.addEcho(scope.todo);
 
         expect(scope.input.wholeMsg).toEqual('');
@@ -179,9 +179,9 @@ describe('TodoCtrl', function() {
 
         
         scope.input = {wholeMsg: "hi"};
-        scope.todo = {echo:0,order:1,todo.hasDisliked:false};
+        scope.todo = {echo:0,order:1,hasDisliked:false};
         scope.dislike(scope.todo);
-        scope.todo = {echo:0,order:1,todo.hasDisliked:true};
+        scope.todo = {echo:0,order:1,hasDisliked:true};
         scope.dislike(scope.todo);
 
         expect(scope.input.wholeMsg).toEqual('');
@@ -199,7 +199,7 @@ describe('TodoCtrl', function() {
         scope.todo = {wholeMsg:"xd"};
         scope.quote(scope.todo);
         scope.todo2 = {wholeMsg:"sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"};
-        scope.qutoe(scope.todo2);
+        scope.quote(scope.todo2);
       });
 
       it('Add Reply Testing',function(){
@@ -209,21 +209,15 @@ describe('TodoCtrl', function() {
           $location:location,
           $sce:sce
         });
-        scope.todo = {reply:[{msg:"xas"}]};
-        scope.todo.input.wholeReply = "";
-        scope.addReply(todo);
-        scope.todo = {reply:[{msg:"xas"}]};
-        scope.data0.user_id = "null";
-        scope.todo.input.wholeReply = "hi";
-        scope.addReply(todo);
-        scope.todo = {reply:[{msg:"xas"}]};
-        scope.data0.user_id = "sdsdq";
-        scope.todo.input.wholeReply = "hi";
-        scope.addReply(todo);
-        scope.todo = {};
-        scope.todo.input.wholeReply = "hi";
-        scope.addReply(todo);
-
+        var newTodo;
+        newTodo = " ";
+        scope.data0 = {user_id:""};
+        scope.todo = {reply:["sad"],input:{wholeReply:"123"}};
+        scope.addReply(scope.todo);
+        scope.todo2 = {reply:false,input:{wholeReply:"123"}};
+        scope.addReply(scope.todo2);
+        scope.todo2 = {reply:false,input:{wholeReply:""}};
+        scope.addReply(scope.todo2);
       });
 
 
@@ -266,15 +260,11 @@ describe('TodoCtrl', function() {
         var ctrl = controller('TodoCtrl', {
           $scope: scope,
         });
-        scope.input.wholeMsg = "";
+        scope.input = {wholeMsg:""};
         scope.addTodo();
-        scope.input.wholeMsg = "hi!..";
-        scope.imagelink = null;
-        scope.data0.user_id = null;
-        scope.addTodo();
-        scope.input.wholeMsg = "hi!..";
-        scope.imagelink = "sdsdsd";
-        scope.data0.user_id = "sdwqer";
+        scope.input = {wholeMsg:"123"};
+        scope.imagelink = false;
+        scope.data0 = {user_id:false};
         scope.addTodo();
   
       });
