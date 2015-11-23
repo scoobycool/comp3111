@@ -119,11 +119,6 @@ $scope.getYoutube = function($text){
 };
 
 
-$scope.getImgur = function($text){
-	var re = /http:\/\/(.*imgur\.com\/.*)/i;
-	return $text.match(re);
-};
-
 $scope.getFirstAndRestSentence = function($string) {
 	var head = $string;
 	var desc = "";
@@ -157,7 +152,6 @@ $scope.addTodo = function () {
 	var desc = firstAndLast[1];
 	var imglink = $scope.imagelink;
 	var youtubeurl = $scope.getYoutube (newTodo);
-	var imgururl = $scope.getImgur(newTodo);
 	var user_id = $scope.data0.user_id
 	if (!($scope.imagelink)){
 		imglink = '';
@@ -174,7 +168,6 @@ $scope.addTodo = function () {
 		completed: false,
 		timestamp: new Date().getTime(),
 		youtube: youtubeurl,
-		imgur: imgururl,
 		tags: "...",
 		echo: 0,
 		order: 0,
