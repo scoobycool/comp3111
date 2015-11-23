@@ -182,7 +182,8 @@ $scope.addTodo = function () {
 	$scope.input.wholeMsg = '';
 };
  
-
+$scope.filterType = {filterSelection:null};
+ 
 $scope.editTodo = function (todo) {
 	$scope.editedTodo = todo;
 	$scope.originalTodo = angular.extend({}, $scope.editedTodo);

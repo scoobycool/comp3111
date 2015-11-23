@@ -116,11 +116,14 @@ ng-model="input.wholeMsg" autofocus></textarea>
 	<button class="btn btn-default" id= "Ask" type="button" ng-click="addTodo()">Ask</button>
 </span>
 </div><!-- /input-group -->
-
-
+<!--select filter-->
+<select ng-model="filterType">
+		<option value=0>echo</option>
+		<option value=1>time</option>
+	</select>
 
 <div class="list-group" id="todo-list">
-	<span class="list-group-item" ng-repeat="todo in todos | filter:input.wholeMsg | questionFilter:maxQuestion" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+	<span class="list-group-item" ng-repeat="todo in todos | filter:input.wholeMsg | questionFilter:maxQuestion:filterType" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
 		<h4 class="list-group-item-heading" ng-switch on="todo.headLastChar">
 			<span class="label label-danger" ng-show="todo.new">New</span>
 			<span class="badge">{{todo.echo}}</span>
