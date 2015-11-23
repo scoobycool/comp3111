@@ -116,11 +116,15 @@ ng-model="input.wholeMsg" autofocus></textarea>
 	<button class="btn btn-default" id= "Ask" type="button" ng-click="addTodo()">Ask</button>
 </span>
 </div><!-- /input-group -->
+
 <!--select filter-->
+<div class="filter-select">
+    Show the question in the order of:
 <select ng-model="filterType">
-		<option value=0>echo</option>
+		<option value=0>like</option>
 		<option value=1>time</option>
 	</select>
+</div>
 
 <div class="list-group" id="todo-list">
 	<span class="list-group-item" ng-repeat="todo in todos | filter:input.wholeMsg | questionFilter:maxQuestion:filterType" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
@@ -165,7 +169,7 @@ ng-model="input.wholeMsg" autofocus></textarea>
 
 			<p class ="reply-group" ng-show="todo.reply">
 			 <br>
-			 <span class="list-group-item" ng-repeat="m in todo.reply" id="replylist" ><span ng-show="$index==0" ><span class = "badge"><i class="fa fa-star"></i> Best Reply</span></span>&nbsp;&nbsp;
+			 <span class="list-group-item" ng-repeat="m in todo.reply | questionFilter:maxQuestion:0" id="replylist" ><span ng-show="$index==0" ><span class = "badge"><i class="fa fa-star"></i> Best Reply</span></span>&nbsp;&nbsp;
        <a ng-show="m.id" href ="https://facebook.com/{{todo.id}}"><img src="https://graph.facebook.com/{{m.id}}/picture/?type=square&return_ssl_resources=1" alt="{{m.name}}" /></a>
        {{m.name}}: {{m.msg}}&nbsp;&nbsp;
        <span style="font-size: 11px !important; color: #aaaaaa;">created: {{m.timestamp | fromNow}}</span>
