@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for js\controllers\todoCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">js/controllers/</a> todoCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.5% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>173/200</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">78.85% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>41/52</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>24/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.73% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>170/196</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*global todomvc, angular, Firebase */
+'use strict';
+&nbsp;
+/**
+* The main controller for the app. The controller:
+* - retrieves and persists the model via the $firebaseArray service
+* - exposes the model to the template and provides event handlers
+*/
+&nbsp;
+todomvc.controller('TodoCtrl',
+['$scope', '$location', '$firebaseArray', '$sce', '$localStorage', '$window','$firebaseObject',
+function ($scope, $location, $firebaseArray, $sce, $localStorage, $window , $firebaseObject) {
+	// set local storage
+	$scope.$storage = $localStorage;
+&nbsp;
+	var scrollCountDelta = 10;
+	$scope.maxQuestion = scrollCountDelta;
+	/*
+	$(window).scroll(function(){
+	if($(window).scrollTop() &gt; 0) {
+	$("#btn_top").show();
+} else {
+$("#btn_top").hide();
+}
+});
+*/
+var splits = $location.path().trim().split("/");
+var roomId = angular.lowercase(splits[1]);
+if (!roomId || roomId.length === 0) {
+	roomId = "all";
+}
+&nbsp;
+// TODO: Please change this URL for your app
+var firebaseURL = "https://glaring-heat-3250.firebaseio.com/";
+var liveURL = "https://glaring-heat-3250.firebaseio.com/live";
+&nbsp;
+&nbsp;
+$scope.roomId = roomId;
+var url = firebaseURL + roomId + "/questions/";
+var echoRef = new Firebase(url);
+var listRef = new Firebase("https://glaring-heat-3250.firebaseio.com/presence/");
+&nbsp;
+var userRef = listRef.push({'user_name': 'anonymous'});
+&nbsp;
+// Add ourselves to presence list when online.
+var presenceRef = new Firebase("https://glaring-heat-3250.firebaseio.com/.info/connected");
+presenceRef.on("value", function(snap) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (snap.val()) {
+    // Remove ourselves when we disconnect.
+<span class="cstat-no" title="statement not covered" >    userRef.onDisconnect().remove();</span>
+  }
+});
+&nbsp;
+// Number of online users is the number of objects in the presence list.
+listRef.once("value", <span class="fstat-no" title="function not covered" >function(snapshot) {</span>
+<span class="cstat-no" title="statement not covered" >  $scope.data1  = snapshot.numChildren();</span>
+  // a === 1 ("name")
+});
+&nbsp;
+var query = echoRef.orderByChild("order");
+var query2 = listRef.orderByKey();
+// Should we limit?
+//.limitToFirst(1000);
+$scope.todos = $firebaseArray(query);
+$scope.namelist = $firebaseArray(query2);
+&nbsp;
+var syncObject = $firebaseObject(userRef);
+syncObject.$bindTo($scope, "data0");
+&nbsp;
+//$scope.input.wholeMsg = '';
+$scope.editedTodo = null;	
+&nbsp;
+ //-------Added by longq-------
+ var quoteMsg=" ";
+  //-------Added by longq-------
+ 
+// pre-precessing for collection
+$scope.$watchCollection('todos', function () {
+	var total = 0;
+	var remaining = 0;
+	$scope.todos.forEach(function (todo) {
+		// Skip invalid entries so they don't break the entire app.
+		if (!todo || !todo.head ) {
+			return;
+		}
+&nbsp;
+		total++;
+		if (todo.completed === false) {
+			remaining++;
+		}
+&nbsp;
+		// set time
+		todo.dateString = new Date(todo.timestamp).toString();
+		todo.tags = todo.wholeMsg.match(/#\w+/g);
+&nbsp;
+		todo.trustedDesc = $sce.trustAsHtml(todo.linkedDesc);
+	});
+&nbsp;
+	$scope.totalCount = total;
+	$scope.remainingCount = remaining;
+	$scope.completedCount = total - remaining;
+	$scope.allChecked = remaining === 0;
+	$scope.absurl = $location.absUrl();
+}, true);
+&nbsp;
+&nbsp;
+// Get the first sentence and rest
+$scope.live = <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >	$scope.data.live = $scope.data.live -1;</span>
+}
+$scope.getYoutube = function($text){
+    var re = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\S*[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&amp;+%\w.-]*(?:['"][^&lt;&gt;]*&gt;|&lt;\/a&gt;))[?=&amp;+%\w.-]*/ig;
+    var match = $text.match(re);
+    if(match!=null){
+    var res = match[0].split("v=");
+    return "https://www.youtube.com/embed/" + res[1];}
+    else{return null;}
+        
+};
+&nbsp;
+&nbsp;
+$scope.getFirstAndRestSentence = function($string) {
+	var head = $string;
+	var desc = "";
+            //-------Added by longq-------&gt;
+	var separators = '\n';
+            //-------Added by longq-------&gt;
+	var firstIndex = -1;
+	for (var i in separators) {
+		var index = $string.indexOf(separators[i]);
+		if (index == -1) continue;
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (firstIndex == -1) {firstIndex = index; continue;}
+<span class="cstat-no" title="statement not covered" >		if (firstIndex &gt; index) {<span class="cstat-no" title="statement not covered" >firstIndex = index;}</span></span>
+	}
+&nbsp;
+	if (firstIndex !=-1) {
+		head = $string.slice(0, firstIndex+1);
+		desc = $string.slice(firstIndex+1);
+	}
+	return [head, desc];
+};
+&nbsp;
+$scope.addTodo = function () {
+	var newTodo = $scope.input.wholeMsg.trim();
+	// No input, so just do nothing
+	if (!newTodo.length) {
+		return;
+	}
+&nbsp;
+	var firstAndLast = $scope.getFirstAndRestSentence(newTodo);
+	var head = firstAndLast[0];
+	var desc = firstAndLast[1];
+	var imglink = $scope.imagelink;
+	var youtubeurl = $scope.getYoutube (newTodo);
+	var user_id = $scope.data0.user_id
+	<span class="missing-if-branch" title="else path not taken" >E</span>if (!($scope.imagelink)){
+		imglink = '';
+	}
+	<span class="missing-if-branch" title="else path not taken" >E</span>if(!($scope.data0.user_id)){
+		user_id = null;
+	}
+	$scope.todos.$add({
+		wholeMsg: newTodo,
+		head: head,
+		headLastChar: head.slice(-1),
+		desc: desc,
+		linkedDesc: Autolinker.link(desc, {newWindow: false, stripPrefix: false}),
+		completed: false,
+		timestamp: new Date().getTime(),
+		youtube: youtubeurl,
+		tags: "...",
+		echo: 0,
+		order: 0,
+        quote: quoteMsg,
+        image: imglink,
+        name:$scope.data0.user_name,
+        id:user_id
+	});
+	// remove the posted question in the input
+<span class="cstat-no" title="statement not covered" >	$scope.imagelink ='';</span>
+<span class="cstat-no" title="statement not covered" >    quoteMsg=" ";</span>
+<span class="cstat-no" title="statement not covered" >	$scope.input.wholeMsg = '';</span>
+};
+ 
+$scope.filterType = {filterSelection:null};
+ 
+$scope.editTodo = function (todo) {
+	$scope.editedTodo = todo;
+	$scope.originalTodo = angular.extend({}, $scope.editedTodo);
+};
+&nbsp;
+$scope.addEcho = function (todo) {
+&nbsp;
+if(!todo.hasLiked){
+		todo.hasLiked = true;
+		//like
+		$scope.editedTodo = todo;
+		todo.echo = todo.echo + 1;
+		// Hack to order using this order.
+		todo.order = todo.order -1;
+&nbsp;
+		$scope.$storage[todo.$id] = "Unlike";
+		todo.chlid = "Unlike";
+&nbsp;
+		$scope.todos.$save(todo);
+&nbsp;
+	}
+&nbsp;
+	else {
+		todo.hasLiked = false;
+		//dislike
+		$scope.editedTodo = todo;
+		todo.echo = todo.echo - 1;
+		// Hack to order using this order.
+		todo.order = todo.order +1;
+&nbsp;
+		todo.chlid = "Like";
+&nbsp;
+		$scope.todos.$save(todo);
+&nbsp;
+	}
+};
+&nbsp;
+ $scope.sce = $sce.trustAsResourceUrl;
+ 
+ $scope.dislike = function (todo) {
+ 	if(!todo.hasDisliked){
+		todo.hasDisliked = true;
+		//dislike
+		$scope.editedTodo = todo;
+		todo.echo = todo.echo - 1;
+		// Hack to order using this order.
+		todo.order = todo.order +1;
+&nbsp;
+		$scope.$storage[todo.$id] = "Undislike";
+		todo.chdid = "Undislike";
+&nbsp;
+		$scope.todos.$save(todo);
+&nbsp;
+	}
+&nbsp;
+	else {
+		todo.hasDisliked = false;
+		//like
+		$scope.editedTodo = todo;
+		todo.echo = todo.echo + 1;
+		// Hack to order using this order.
+		todo.order = todo.order -1;
+&nbsp;
+		todo.chdid = "Dislike";
+&nbsp;
+		$scope.todos.$save(todo);
+&nbsp;
+	}
+ };
+ 
+ $scope.quote = function (todo) {
+    quoteMsg= "(Quote:"+todo.wholeMsg+")";
+ if(quoteMsg.length&gt;100){
+ var substring=quoteMsg.substring(0,100)+"...)";
+ quoteMsg=substring;
+ 
+ }
+ };
+ 
+ 
+&nbsp;
+$scope.addReply = function (todo) {
+	var newTodo = todo.input.wholeReply.trim();
+	// No input, so just do nothing
+	var user_id = $scope.data0.user_id;
+	<span class="missing-if-branch" title="else path not taken" >E</span>if(!($scope.data0.user_id)){
+		user_id = null;
+	}
+	if (!newTodo.length) {
+		return;
+	}
+	if(todo.reply){
+	 todo.reply.push({msg:newTodo,timestamp: new Date().getTime(),echo:0, name:$scope.data0.user_name,id:user_id});
+	 $scope.todos.$save(todo);
+	} else{
+	 todo.reply = [{msg:newTodo,timestamp: new Date().getTime(),echo:0, name:$scope.data0.user_name,id:user_id}];
+	 todo.input.wholeReply = '';
+	 $scope.todos.$save(todo);}
+	// remove the posted question in the input
+};
+&nbsp;
+$scope.doneEditing = function (todo) {
+	$scope.editedTodo = null;
+	var wholeMsg = todo.wholeMsg.trim();
+	if (wholeMsg) {
+		$scope.todos.$save(todo);
+	} else {
+		$scope.removeTodo(todo);
+	}
+};
+&nbsp;
+$scope.revertEditing = function (todo) {
+	todo.wholeMsg = $scope.originalTodo.wholeMsg;
+	$scope.doneEditing(todo);
+};
+&nbsp;
+$scope.removeTodo = function (todo) {
+	$scope.todos.$remove(todo);
+};
+&nbsp;
+$scope.clearCompletedTodos = function () {
+	$scope.todos.forEach(function (todo) {
+		if (todo.completed) {
+			$scope.removeTodo(todo);
+		}
+	});
+};
+&nbsp;
+$scope.toggleCompleted = function (todo) {
+	todo.completed = !todo.completed;
+	$scope.todos.$save(todo);
+};
+&nbsp;
+$scope.markAll = function (allCompleted) {
+	$scope.todos.forEach(function (todo) {
+		todo.completed = allCompleted;
+		$scope.todos.$save(todo);
+	});
+};
+&nbsp;
+$scope.FBLogin = function () {
+	var ref = new Firebase(firebaseURL);
+	ref.authWithOAuthPopup("facebook", <span class="fstat-no" title="function not covered" >function(error, authData) {</span>
+<span class="cstat-no" title="statement not covered" >		if (error) {</span>
+<span class="cstat-no" title="statement not covered" >			console.log("Login Failed!", error);</span>
+		} else {
+<span class="cstat-no" title="statement not covered" >			$scope.$apply(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >				$scope.$authData = authData;</span>
+<span class="cstat-no" title="statement not covered" >				$scope.data0.user_name =  authData.facebook.displayName;</span>
+<span class="cstat-no" title="statement not covered" >				$scope.data0.user_id = authData.facebook.id;</span>
+<span class="cstat-no" title="statement not covered" >				$scope.isAdmin = true;</span>
+			});
+<span class="cstat-no" title="statement not covered" >			console.log("Authenticated successfully with payload:", authData);</span>
+		}
+	});
+};
+&nbsp;
+&nbsp;
+&nbsp;
+$scope.FBLogout = function () {
+	$scope.data0.user_name = "anonymous";
+<span class="cstat-no" title="statement not covered" >	$scope.data0.user_id = null;</span>
+<span class="cstat-no" title="statement not covered" >	var ref = new Firebase(firebaseURL);</span>
+<span class="cstat-no" title="statement not covered" >	ref.unauth();</span>
+<span class="cstat-no" title="statement not covered" >	delete $scope.$authData;</span>
+<span class="cstat-no" title="statement not covered" >	$scope.isAdmin = false;</span>
+};
+&nbsp;
+$scope.increaseMax = function () {
+	if ($scope.maxQuestion &lt; $scope.totalCount) {
+		$scope.maxQuestion+=scrollCountDelta;
+	}
+};
+$scope.movetags = <span class="fstat-no" title="function not covered" >function(tag){</span>
+<span class="cstat-no" title="statement not covered" >	$scope.input.wholeMsg = tag;</span>
+<span class="cstat-no" title="statement not covered" >	$window.scrollTo(0,0);</span>
+};
+&nbsp;
+&nbsp;
+$scope.toTop =function toTop() {
+	$window.scrollTo(0,0);
+ };
+ 
+&nbsp;
+                         // Not sure what is this code. Todel
+if ($location.path() === '') {
+	$location.path('/');
+}
+$scope.location = $location;
+&nbsp;
+// autoscroll
+angular.element($window).bind("scroll", <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >	if ($window.innerHeight + $window.scrollY &gt;= $window.document.body.offsetHeight) {</span>
+<span class="cstat-no" title="statement not covered" >		console.log('Hit the bottom2. innerHeight' +</span>
+		$window.innerHeight + "scrollY" +
+		$window.scrollY + "offsetHeight" + $window.document.body.offsetHeight);
+&nbsp;
+		// update the max value
+<span class="cstat-no" title="statement not covered" >		$scope.increaseMax();</span>
+&nbsp;
+		// force to update the view (html)
+<span class="cstat-no" title="statement not covered" >		$scope.$apply();</span>
+	}
+});
+&nbsp;
+ 
+ 
+&nbsp;
+}]);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Nov 23 2015 17:49:26 GMT+0800 (中國標準時間)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
